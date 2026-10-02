@@ -9,7 +9,7 @@ def cb(msg):
     except: pass
 
 async def main():
-    url = "https://www.tiktok.com/@englishbyjay/video/7685282263554133266"
+    url = "https://www.tiktok.com/@ducit.vn/video/7646068498585619720"
     out_folder = r"C:\tiktok\video"
     os.makedirs(out_folder, exist_ok=True)
     print("Starting video processing (Full: Subtitles + Voiceover)...")
