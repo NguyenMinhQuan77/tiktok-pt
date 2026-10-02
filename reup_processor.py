@@ -15,6 +15,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 os.environ["PATH"] = current_dir + os.pathsep + os.environ.get("PATH", "")
 
 def download_video(url, output_filename, callback=None):
+    # Tiền xử lý URL cho Douyin (chuyển modal_id thành dạng chuẩn)
+    import re
+    if "douyin.com" in url and "modal_id=" in url:
+        match = re.search(r"modal_id=(\d+)", url)
+        if match:
+            url = f"https://www.douyin.com/video/{match.group(1)}"
+            if callback: callback("Đã tự động sửa link Douyin sang định dạng chuẩn.")
+            
     if "tiktok.com" in url:
         if callback: callback(f"Đang tải video TikTok qua API chuyên dụng (Vượt Bot)...")
         try:
@@ -139,13 +147,13 @@ def merge_video_audio(video_path, audio_path, output_path, use_subtitles=False, 
             # Xử lý các Style phụ đề khác nhau bằng force_style
             sub_filter = f"subtitles={safe_srt_path}"
             if sub_style == "Vàng Nổi Bật":
-                sub_filter += ":force_style='Fontname=Arial,Fontsize=22,PrimaryColour=&H0000FFFF,Outline=2'"
+                sub_filter += ":force_style='Fontname=Arial,Fontsize=12,PrimaryColour=&H0000FFFF,Outline=2'"
             elif sub_style == "Trắng To Rõ":
-                sub_filter += ":force_style='Fontname=Arial,Fontsize=26,PrimaryColour=&H00FFFFFF,Outline=3'"
+                sub_filter += ":force_style='Fontname=Arial,Fontsize=14,PrimaryColour=&H00FFFFFF,Outline=3'"
             elif sub_style == "Xanh Neon":
-                sub_filter += ":force_style='Fontname=Arial,Fontsize=22,PrimaryColour=&H0000FF00,Outline=2'"
+                sub_filter += ":force_style='Fontname=Arial,Fontsize=12,PrimaryColour=&H0000FF00,Outline=2'"
             else:
-                sub_filter += ":force_style='Fontname=Arial,Fontsize=18,PrimaryColour=&H00FFFFFF,Outline=1'"
+                sub_filter += ":force_style='Fontname=Arial,Fontsize=10,PrimaryColour=&H00FFFFFF,Outline=1'"
                 
             import subprocess
             if video_path == audio_path:

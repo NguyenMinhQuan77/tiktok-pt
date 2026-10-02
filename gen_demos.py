@@ -8,10 +8,10 @@ with open('demo.srt', 'w', encoding='utf-8') as f:
     f.write(srt_content)
 
 styles = {
-    'demos/style1.jpg': "Fontname=Arial,Fontsize=18,PrimaryColour=&H00FFFFFF,Outline=1",
-    'demos/style2.jpg': "Fontname=Arial,Fontsize=22,PrimaryColour=&H0000FFFF,Outline=2",
-    'demos/style3.jpg': "Fontname=Arial,Fontsize=26,PrimaryColour=&H00FFFFFF,Outline=3",
-    'demos/style4.jpg': "Fontname=Arial,Fontsize=22,PrimaryColour=&H0000FF00,Outline=2"
+    'demos/style1.jpg': "Fontname=Arial,Fontsize=10,PrimaryColour=&H00FFFFFF,Outline=1",
+    'demos/style2.jpg': "Fontname=Arial,Fontsize=12,PrimaryColour=&H0000FFFF,Outline=2",
+    'demos/style3.jpg': "Fontname=Arial,Fontsize=14,PrimaryColour=&H00FFFFFF,Outline=3",
+    'demos/style4.jpg': "Fontname=Arial,Fontsize=12,PrimaryColour=&H0000FF00,Outline=2"
 }
 
 os.makedirs('demos', exist_ok=True)
